@@ -10,7 +10,7 @@ body{
 
 .app{
     background-color: rgb(255, 255, 255);
-    box-shadow: rgba(0, 0, 0, 0.05) 0 6px 24px rgba(0, 0, 0, 0.08) 0 0 0 1px;
+    box-shadow: rgba(18, 5, 5, 0.05) 0 6px 24px rgba(0, 0, 0, 0.08) 0 0 0 1px;
     border-radius: 10px;
     padding: 10px;
     width: 800px;
@@ -18,7 +18,7 @@ body{
 }
 
 
-.button-container{
+.button-container , .info-container{
     display: flex;
     align-items: center; 
 }
@@ -29,6 +29,73 @@ body{
     border-radius: 12px;
     background-color: transparent;
     font-size: 10px;
+}
+
+.edit{
+    border:1.5px solid rgb(141,181,145);
+    color: rgb(141,181,145);
+    text-transform: uppercase;
+}
+
+.edit:hover{
+    background-color: rgb(182,223,186);
+}
+
+.edit:active{
+    color: rgb(255, 255, 255);
+    background-color: rgb(141,181,145);
+
+}
+
+.delete{
+    border: 1.5px solid rgb(255,175,163);
+    color: rgb(205, 95, 78);
+    text-transform: uppercase
+}
+
+.delete:hover{
+    background-color: rgb(255,201,193);
+
+}
+
+.delete:active{
+    color: rgb(255,255,255);
+    background-color: rgb(255,175,163);
+}
+
+
+.create{
+    border: 1.5px solid rgb(108,115,148);
+    color: rgb(168, 178, 232);
+    text-transform: uppercase;
+}
+
+.create:hover{
+    background-color: rgb(108,115,148);
+}
+
+.create:active{
+    background-color: rgb(108,115,148);
+    color: rgb(255, 255, 255);
+}
+
+.signout{
+    border: 1.5px solid rgb(255, 175, 163);
+    background-color: rgb(255, 175, 163) !important;
+    color: rgb(255, 255, 255)  ;
+}
+
+.signout:hover{
+    background-color: rgb(175, 94, 94) !important;
+    border: 1.5px solid rgb(175, 94, 94);
+
+}
+
+
+.signout:active{
+    border: 1.5px solid rgb(175,81,81) !important;
+    background-color: rgb(175,81,81) !important;
+    color: rgb(255, 255, 255);
 }
 
 
@@ -45,3 +112,24 @@ body{
 .button-container{
 
 }
+
+
+/* List Item */
+
+.list-items{
+    width: 100%;
+    margin: 10px 0;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.08) 0 0 0 1px;
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.tick{
+    padding: 10px;
+}
+
+
+
+
