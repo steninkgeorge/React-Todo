@@ -16,8 +16,10 @@ function Modal() {
   const handleChange=(e)=>{
     console.log("changing",e)
     const {name,value}=e.target
+
     setData(data=>({
-      
+      ...data, 
+      [name]:value
     }))
   }
 
@@ -35,7 +37,7 @@ function Modal() {
             maxLength={30}
             placeholder=' your task goes here'
             name='title'
-            value={''}
+            value={data.title}
             onChange={handleChange}
           />
           <br/>
@@ -47,7 +49,7 @@ function Modal() {
             id='range'
             max='100'
             name='progress'
-            value={""}
+            value={data.progress}
             onChange={handleChange}
           />
 
