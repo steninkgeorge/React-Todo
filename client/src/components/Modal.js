@@ -16,7 +16,7 @@ function Modal( {mode,setShowModal ,task,getData}) {
   const postData=async(e)=>{
     e.preventDefault();
     try{
-      const response= await fetch('http://localhost:8000/todos',{method:"POST", headers:{'Content-Type':'application/json'},body:JSON.stringify(data)})
+      const response= await fetch(`${process.env.REACT_APP_SERVERURL}`,{method:"POST", headers:{'Content-Type':'application/json'},body:JSON.stringify(data)})
       if(response.status===200){
         console.log('worked')
         setShowModal(false)
@@ -30,7 +30,7 @@ function Modal( {mode,setShowModal ,task,getData}) {
   const editData=async(e)=>{
     e.preventDefault()
     try{
-      const response=await fetch(`http://localhost:8000/todos/${task.id}`,{method:"PUT", headers:{'Content-Type':'application/json'},body:JSON.stringify(data)})
+      const response=await fetch(`${process.env.REACT_APP_SERVERURL}/todos/${task.id}`,{method:"PUT", headers:{'Content-Type':'application/json'},body:JSON.stringify(data)})
       if (response.status===200){
         setShowModal(false)
         getData()
@@ -39,7 +39,6 @@ function Modal( {mode,setShowModal ,task,getData}) {
       console.error(err)
     }
   } 
-  
 
   const handleChange=(e)=>{
     console.log("changing",e)
