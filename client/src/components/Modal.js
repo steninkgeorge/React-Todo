@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState } from 'react'
 
-function Modal( {mode,setShowModal ,task}) {
+function Modal( {mode,setShowModal ,task,getData}) {
   
   const editMode= mode === 'edit'? true : false
 
@@ -10,18 +10,35 @@ function Modal( {mode,setShowModal ,task}) {
     user_email:editMode? task.user_email : "stenin@test.com",
     title: editMode? task.title : null,
     progress:editMode ? task.progress : 50,
-    date:editMode? "": new Date()
+    date:editMode? task.date: new Date()
   })
 
   const postData=async(e)=>{
     e.preventDefault();
     try{
       const response= await fetch('http://localhost:8000/todos',{method:"POST", headers:{'Content-Type':'application/json'},body:JSON.stringify(data)})
-      console.log(response)
+      if(response.status===200){
+        console.log('worked')
+        setShowModal(false)
+        getData()
+      }
     }catch(err){
       console.error(err)
     }
   }
+
+  const editData=async(e)=>{
+    e.preventDefault()
+    try{
+      const response=await fetch(`http://localhost:8000/todos/${task.id}`,{method:"PUT", headers:{'Content-Type':'application/json'},body:JSON.stringify(data)})
+      if (response.status===200){
+        setShowModal(false)
+        getData()
+      }
+    }catch(err){
+      console.error(err)
+    }
+  } 
   
 
   const handleChange=(e)=>{
@@ -64,7 +81,7 @@ function Modal( {mode,setShowModal ,task}) {
             onChange={handleChange}
           />
 
-          <input className={mode} type='submit' onClick={editMode ? "": postData}/>
+          <input className={mode} type='submit' onClick={editMode ? editData: postData}/>
         </form>
       </div>
     </div>

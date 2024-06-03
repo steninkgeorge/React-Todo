@@ -3,7 +3,7 @@ import ProgressBar from './ProgressBar'
 import TickIcon from './TickIcon'
 import Modal from './Modal'
 
-function ListItems({task}) {
+function ListItems({task, getData}) {
   const [showModal, setShowModal]=useState(false)
   return (
     <li className='list-items'>
@@ -18,7 +18,7 @@ function ListItems({task}) {
         <button className='delete'>delete</button>
 
       </div>
-      {showModal && <Modal mode={'edit'} setShowModal={setShowModal} task={task}/>}
+      {showModal && <Modal mode={'edit'} setShowModal={setShowModal} task={task} getData={getData}/>}
     
     </li>
   )
