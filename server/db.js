@@ -3,11 +3,8 @@ require("dotenv").config()
 
 
 const pool = new Pool({
-    user: process.env.DB_USER,
-    password: process.env.PASSWORD,
-    host: process.env.HOST,
-    port: process.env.DBPORT,
-    database: "todoapp"
+    connectionString: process.env.POSTGRES_URL,
+
 })
 
 module.exports=pool
