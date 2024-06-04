@@ -1,4 +1,4 @@
-# PERN Stack Todo App
+# Todo App
 
 This is a full-featured Todo application built with the PERN stack (PostgreSQL, Express.js, React, Node.js). The application allows users to manage their daily tasks efficiently with user authentication, CRUD operations on todos, and more.
 
