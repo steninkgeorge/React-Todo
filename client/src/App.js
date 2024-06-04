@@ -39,10 +39,13 @@ const sortedTasks = tasks?.sort((a,b)=> new Date(a.date)- new Date(b.date))
 
     <div className="app">
         {!authToken && <Auth/>}
+
         {authToken && <>
           <ListHeader listName={'Holiday Tick list'} getData={ getData}/>
+          <p className="user-email">Welcome back {userEmail}</p>
           {sortedTasks?.map((task)=>   <ListItems key={task.id}  task={task} getData={getData}/>)}  
         </>}
+        <p className="copyright">© All rights reserved </p>
     </div>
 
   );
