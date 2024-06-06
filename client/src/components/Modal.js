@@ -14,9 +14,12 @@ function Modal( {mode,setShowModal ,task,getData}) {
     date:editMode? task.date: new Date()
   })
 
+
+
   const postData=async(e)=>{
     e.preventDefault();
     try{
+      console.log(data)
       const response= await fetch(`${process.env.REACT_APP_SERVERURL}`,{method:"POST", headers:{'Content-Type':'application/json'},body:JSON.stringify(data)})
       if(response.status===200){
         console.log('worked')
